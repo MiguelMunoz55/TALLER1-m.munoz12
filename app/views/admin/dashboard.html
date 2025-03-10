@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Bienvenido, {{ user.username }}</h2>
+    <p>Esta es tu página de administración.</p>
+
+    <h3>Lista de Perros en la Guardería</h3>
+
+    {% if perros %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Raza</th>
+                <th>Edad</th>
+            </tr>
+            {% for perro in perros %}
+            <tr>
+                <td>{{ perro.id }}</td>
+                <td>{{ perro.nombre }}</td>
+                <td>{{ perro.raza }}</td>
+                <td>{{ perro.edad }} años</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No hay perros registrados en la guardería.</p>
+    {% endif %}
+
+    <a href="/">Cerrar sesión</a>
+</body>
+</html>
